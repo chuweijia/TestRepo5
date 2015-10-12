@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	*{
+		margin: 0px;
+		padding: 0px;
+	}
+	 
+	.C1{
+		display: inline-block;
+		position: absolute;
+		z-index: 10;
+		visibility: hidden;
+		width:300px;
+		height:300px;
+		overflow: hidden;
+	}
+
+	</style>
+</head>
+<body>
+	<div id="main">
+		<img id = "BG" src="../ima/BG.jpg">
+		<!-- <img id = "BG2" src="file:///F:/ima/BG.jpg"> -->
+	</div>
+	<script type="text/javascript">
+
+	//var BG = document.getElementById("BG");
+	window.onload = function(){
+		var FUN = {
+		newElement:function(strnode){
+				return document.createElement(strnode);
+		},
+		getClientHeight:function(){
+			return document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight;//处理兼容还是获取是否滚动条？？
+		},
+		getClientWidth:function(){
+			return document.documentElement.clientWidth ? document.documentElement.clientWidth : document.body.clientWidth;
+		},
+		getById:function(id){
+			return document.getElementById(id);
+		},
+		
+		addClass:function(o,v){
+			function hasClass(d, t){
+			 return  new RegExp('(\\s|^)' + t + '(\\s|$)').test(d.className);
+		    }
+
+			var classes = o.className;
+  			if (!hasClass(o, v)) {
+  			o.className = o.className + ' ' + v;
+  		}
+		}
+		
+
+  }
+
+
+
+  		var btn_log = FUN.getById("BG");
+  		btn_log.onclick = function(){
+  			var newNode = FUN.newElement("img");//通过tagname得到的
+  			newNode.setAttribute("src","../ima/BG2.png");
+  			newNode.setAttribute("id","BG2");
+  			console.log("newNode"+newNode);
+  			var BG2 = newNode;
+			document.body.appendChild(newNode);
+			FUN.addClass(BG2,"C1");
+			var c_H = FUN.getClientHeight();
+			var c_W = FUN.getClientWidth();
+			var B_top = (c_H-FUN)/2;
+			var B_left = (c_W-BG2.clientWidth)/2;
+		  	
+			BG2.style.top = B_top+'px';
+			BG2.style.left = B_left+'px';
+			BG2.style.visibility="visible";
+
+
+  		}
+  			
+
+  		//应该弹出来的窗口（日后再说）
+		
+
+}
+	/*BG.onclick = function(){
+
+
+
+
+	}*/
+
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+	<!-- <ul>
+		<li>1</li>
+		<li>2</li>
+	</ul> -->
+	<!-- appendChild(),removeChild(),createElement("span")+innerHTML(),insertBefore() -->
+	<script type="text/javascript">
+	var N_li  = document.createElement("p");
+	N_li.innerHTML="chu";
+	var N_ul = document.getElementsByTagName("ul")[0];
+	//document.body.appendChild(N_li);
+
+	</script>
+</body>
+</html>
