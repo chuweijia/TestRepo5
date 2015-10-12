@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	.class1{
+		background-color: red;
+		width:100px;
+		height:100px;
+	}
+
+
+	</style>
+</head>
+<body>
+<!-- <div>
+	<p id="p1">A</p>
+	<p id="p2">B</p>
+</div>
+ -->
+<ul>
+	<li id="l1">A</li>
+	<li id="l2">B</li>
+	<li id="l3">C</li>
+
+</ul>
+
+<div id="div" class="class1">
+</div>
+<script type="text/javascript">
+var chu = {
+	getById:function(id){
+		return document.getElementById(id);
+	},
+	getByTagName:function(name){
+		return document.getElementsByTagName(name);
+	},
+	css:function(obj, style){
+		if(typeof style == 'string'){
+            if(obj.currentStyle){
+				return obj.currentStyle[style]; // IE 
+			}
+			else{
+				return document.defaultView.getComputedStyle(obj,false)[style]; // FF CH
+			}
+		}
+		else{//有值则赋值 无值则取值
+            var r = ''; 
+            for (var i in style){
+                if(obj.currentStyle){
+                    obj.currentStyle[i] = style[i];
+                }
+                else{
+                    r += i +':'+style[i] + ';';
+                }
+			}
+            obj.style.cssText = r;//cssText的作用是设置style的属性值 
+		}
+		
+  },
+	addClass:function(o,v){
+		var classes = o.className;
+		if(!this.hasClass(o,v)){
+
+			o.className = o.className+' '+v;
+			console.log(classes);
+		}
+	},
+	removeClass:function(o,v){
+		var classes = o.className;
+		if(this.hasClass(o,v)){
+			o.className.replace(new RegExp('(\\s|^)' + v + '(\\s|$)').test(classes),"");
+		}
+
+	},
+	hasClass:function(d, t){
+        return  new RegExp('(\\s|^)' + t + '(\\s|$)').test(d.className);
+    },
+    addcss:function(k,v,id){
+    	console.log("1");
+    	var obj = chu.getById(id);
+    	console.log("2");
+		obj.style[k]=v;
+		console.log("3");
+    },
+	arr:{
+		arrlast:function(arr,v){
+			var len = arr.length;
+			arr[len-1] = v;
+			len = len+1;
+			var newarr = [];
+			for(var i=0;i<len;i++){
+				newarr = arr[i];
+			}
+			return newarr;
+		},
+		insert:function(arr,ind,v){
+			var len = arr.length + 1;
+			var arr2 = [];
+			for(var i=0;i<len;i++){
+				if(i<ind){
+					arr2[i] = arr[i];
+				}
+				if(i==ind){
+					arr2[i] = v;
+				}
+				if(i > ind){
+					arr2[i] = arr[i-1];
+				}
+			}
+			return arr2;//返回新的数组
+		}
+	}
+	
+}
+
+
+
+var chucss={
+	chufadeIn:function(obj){
+         var opac = chu.css(obj,'opacity') || 0;
+		 function fadeIn(){
+		 	chu.css(obj,{
+                 opacity : opac
+             })
+		 	 opac += 0.1;
+             if(opac <= 1){
+                 setTimeout(function(){
+                     fadeIn();
+                 },1000)
+             } 
+		 }
+         fadeIn();
+	},
+    chufadeOut:function(obj){
+         var opac = chu.css(obj,'opacity') || 1;
+		 function fadeOut(){
+		 	chu.css(obj,{
+                 opacity : opac
+             })
+		 	 opac -= 0.1;
+             if(opac >= 0){
+                 setTimeout(function(){
+                     fadeOut();
+                 },1000)
+             } 
+		 }
+         fadeOut();
+	}
+}
+	 //var arrTest = ["1","2","3","4"];
+	 //chu.arr.insert(arrTest,2,"chu");
+	 //chu.arr.arrlast(arr,"chu");
+   //var p1 = chu.getById("p1");
+   //chu.addClass(p1,"class1");
+   //chu.addcss("backgroundColor","red","p1");
+   //chu.removeClass(p1,"class1"); 
+   var obj = chu.getById("div");
+   chucss.chufadeOut(obj);
+   var ul = chu.getByTagName("ul");
+   //ul[0].style["fontColor"]="red";
+   var c = ul[0].style[0];
+   var value = ul[0].style.getPropertyValue(c);
+   //console.log(value);
+
+
+</script>
+</body>
+</html>
