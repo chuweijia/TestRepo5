@@ -1,0 +1,202 @@
+*{
+	margin:0px;
+	padding: 0px;
+}
+
+body{
+	font:12px "Microsoft YaHei","\u5FAE\u8F6F\u96C5\u9ED1","Arial","SimSun","\u5B8B\u4F53";
+	background-color: rgb(245,245,245);
+}
+.clearfix{zoom:1;}.clearfix:after{
+    content:'.';
+    display:block;
+    visibility:hidden;
+    clear:both;
+    height:0px;
+ }
+.title{
+	position: relative;
+	padding-left: 10%;
+	padding-right: 10%;
+	background-color: rgb(241,241,241);
+}
+.title-lf{
+	float: left;
+}
+.title-rt{
+	float: right;
+}
+ul{
+	height: 100%;
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	color:#333;
+}
+nav{
+	height: 100%; /*子元素无法适应父元素？？*/
+}
+nav li{
+	padding-top: 10%;
+	margin-right: 10px;
+	height: 100%;
+	display: inline-block;
+	text-align: center;	
+}
+nav li:last-child{
+	margin-right: 0px;
+}
+section.content{
+	margin: 0px auto;
+	width: 80%;
+	background-color: rgb(255,255,255);
+}
+article{
+	margin-top: 10px;
+	background-color: rgb(241,241,241);
+	box-shadow: 2px 2px 2px #ccc;
+}
+.art-1-title{
+	text-align: center;
+	color: #333;
+}
+.art-1-title h2,.art-2-title h2,.art-3-title h2{
+	font-size: 30px;
+	text-shadow:1px 1px 1px;
+}
+.art-1-content div:first-child{
+	color: #666;
+	text-align: right;
+	padding-right: 10px;
+}
+.art-2-content div:first-child,.art-3-content div:first-child{
+	color: #666;	
+	padding-bottom: 10px;
+}
+.about section{
+	padding-left: 2%;
+}
+.search section{
+	padding-left: 4%;
+}
+.ab-ul{
+	/*list-style: square;*/
+}
+.ab-ul a:hover,.sc-ol a:hover{
+	color: blue;
+	text-decoration: underline;
+}
+.ab-ul a:before{
+	content: "";
+	position: absolute;
+	width: 4px;
+	height: 4px;
+	background: #333;
+	left: 70px;
+	top: 105.7em;
+}
+.ab-time,.sc-time{
+	display: inline-block;
+	padding-left: 10px;
+	color:#666;
+}
+
+footer{
+	height: 100px;
+	text-align: center;
+	line-height: 100px;
+	background-color: rgb(51,51,51);
+}
+table{
+	width: 100%;
+	border: solid 1px #ccc;
+}
+tr,td{
+	border: solid 1px #ccc;
+}
+thead{
+	background: #333;
+	text-align: center;
+}
+tbody{
+	text-align: center;
+}
+fieldset{
+	border:0px;
+	margin-top: 20px;
+}
+fieldset:last-of-type{
+	margin-bottom:10px;
+}
+fieldset:last-of-type label{
+	display: block;
+	float: left;
+	margin-top: 20px;
+	margin-right: 5px;
+}
+fieldset button{
+	display: block;
+}
+aside{
+	width: 100%;
+	margin-top: 20px;
+	background-color: rgb(245,245,245);
+	
+}
+input{
+	border: 0px;
+}
+.regist{
+	margin: 0px auto;
+	padding-bottom: 10px;
+	width: 80%;
+	background-color: rgb(241,241,241);
+	box-shadow: 2px 2px 2px #ccc;
+}
+.regist header div{
+	border-left: 3px solid rgb(0,0,0);
+	text-indent: 5px;
+}
+.regist header{
+	height: 23px;
+	border-bottom: 1px solid rgb(169,169,169);
+}
+button{
+	display: block;
+	border-radius: 15px;
+	width: 31%;
+	min-height: 20px;
+	margin-left: 31%;
+	text-align: center;
+	border: 0px;
+}
+fieldset label,input,span,textarea{
+	display: inline-block;
+	width: 30%;
+}
+.wd-ini{
+	width: initial;
+}
+.city input{
+	width: 13%;
+}
+.city span{
+	width: 2%;
+}
+.info{
+	color: #808080;
+}
+fieldset input,textarea{
+	padding: 4px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	resize:none;
+}
+fieldset input[type="radio"], input[type="checkbox"]{
+	width: 5%;
+}
+fieldset label{
+	text-align: right;
+}
+
